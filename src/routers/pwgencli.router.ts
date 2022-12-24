@@ -1,9 +1,9 @@
 import express, { Router } from "express";
-import {sendMessage, sendLOL} from "../controllers/pwgencli.controller"
+import { sendReadme, sendPass } from "../controllers/pwgencli.controller";
 
 const pwgencliRouter: Router = express.Router();
 
-pwgencliRouter.get("/", sendMessage)
-pwgencliRouter.get("/lol", sendLOL)
+pwgencliRouter.get("/", sendReadme);
+pwgencliRouter.get("/:id", sendPass);
 
 export default pwgencliRouter;
