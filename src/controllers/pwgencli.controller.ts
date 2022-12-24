@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import getRandomPass from "../model/pwgencli.model";
+import getRandomPass from "../models/pwgencli.model";
 
 function sendReadme(req: Request, res: Response): void {
   res.send(
