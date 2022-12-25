@@ -2,19 +2,19 @@ import { Request, Response } from "express";
 import getRandomPass from "../models/pwgencli.model";
 
 function sendReadme(req: Request, res: Response): void {
-  res.send(
-    "Usage:" +
-      "\n\n" +
-      "~$ curl " +
-      req.protocol +
-      "://" +
-      req.get("host") +
-      req.originalUrl +
-      "[Password length]" +
-      "\n\n" +
-      "(32 char max length)" +
-      "\n"
-  );
+  res
+    .send(
+      "Usage:" +
+        "\n\n" +
+        "~$ curl " +
+        req.get("host") +
+        req.originalUrl +
+        "[Password length]" +
+        "\n\n" +
+        "(32 char max length)" +
+        "\n"
+    )
+    .end();
 }
 function sendPass(req: Request, res: Response): void {
   if (parseInt(req.params.id) >= 33) {
