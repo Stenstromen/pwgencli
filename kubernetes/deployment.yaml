@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pwgencli
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pwgencli
+  template:
+    metadata:
+      labels:
+        app: pwgencli
+    spec:
+      containers:
+        - name: pwgencli
+          image: dockr.it/pwgencli:k8s
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+      imagePullSecrets:
+        - name: dockrit
